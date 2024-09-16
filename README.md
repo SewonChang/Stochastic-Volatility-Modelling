@@ -6,7 +6,7 @@ This project explores the generalized hyperbolic fitting functions provided by t
 - Generalized Hyperbolic
 - Normal Inverse Gaussian
 - skewed Student-t
-- Varaince-Gamma distributions.
+- Variance-Gamma distributions.
   
 Having obtained parameters from the fitting functions for each distribution, the EM algorithm is applied by having the Generalized Inverse Gaussian act as a mixing distribution to generate and analyze the volatility of the log-returns.
 
