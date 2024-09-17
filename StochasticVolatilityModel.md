@@ -134,6 +134,27 @@ Table
     ## t    15944.78 3362.551
     ## VG   15928.64 3362.024
 
+Volatilies of each GH distribution from the diagonals of the covariance
+matrix
+
+``` r
+GH_vol <- sqrt(diag(GH_Tr@sigma))
+NIG_vol <- sqrt(diag(NIG_Tr@sigma))
+t_vol <- sqrt(diag(t_Tr@sigma))
+VG_vol <- sqrt(diag(VG_Tr@sigma))
+
+vols <- data.frame(GH_vol, NIG_vol, t_vol, VG_vol)
+vols
+```
+
+    ##                     GH_vol     NIG_vol       t_vol      VG_vol
+    ## EUR.X.Adjusted 0.004396187 0.004338957 0.004400670 0.004264960
+    ## CNY.X.Adjusted 0.002632539 0.002596983 0.002635259 0.002574845
+    ## RUB.X.Adjusted 0.007533962 0.007477668 0.007541420 0.007419360
+
+Note that student-t is the most volatile, followed closely by GH, then
+normal inverse, with VG being the least volatile.
+
 Use function coef to find parameters of each distributions.
 
 ``` r
@@ -244,7 +265,10 @@ legend("topleft", legend=c("GH", "normal inverse",
                             "red", "orange","blue"))
 ```
 
-![](StochasticVolatilityModel_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](StochasticVolatilityModel_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+Notice that the volatilities reach their max on 2020-03-09 With VG
+having the lowest volatility of 5.733866, NIG being 8.342398, GH being
+16.68439 and student-t being the highest with 16.87061
 
 Below is also a smoothed version of the graph:
 
@@ -263,4 +287,4 @@ legend("topleft", legend=c("GH", "normal inverse",
                             "red", "orange","blue"))
 ```
 
-![](StochasticVolatilityModel_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](StochasticVolatilityModel_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
